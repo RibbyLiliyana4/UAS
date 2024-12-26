@@ -1,0 +1,86 @@
+version: "3.9"
+
+name: ribbymufid
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx_project
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/html:/usr/share/nginx/html
+    networks:
+      - server_network
+    configs:
+      - source: nginx_config
+        target: /etc/nginx_config/nginx.conf
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+        reservations:
+          memory: 1G
+    restart: always
+
+  php:
+    image: php:7.4-fpm
+    container_name: php_project
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./php:/usr/share/nginx/html
+    networks:
+      - server_network
+    configs:
+      - source: php_config
+        target: /etc/php/7.4/fpm/php.ini
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+        reservations:
+          memory: 1G
+    restart: always
+
+  mysql:
+    image: mysql:8.0.40-debian
+    container_name: mysql_project
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - server_network
+    configs:
+      - source: mysql_config
+        target: /etc/mysql_config/mysql.conf
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+        reservations:
+          memory: 1G
+    restart: always
+
+networks:
+  server_network:
+    driver: bridge
+
+volumes:
+  mysql_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./mysql/mysql_volume
+
+configs:
+  nginx_config:
+    file: ./nginx/nginx_config/nginx.conf
+  php_config:
+    file: ./php/php.ini
+  mysql_config:
+    file: ./mysql/mysql_config/mysql.conf
