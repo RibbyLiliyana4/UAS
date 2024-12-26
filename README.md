@@ -1,10 +1,11 @@
-## [ Docker Code Example for UASP AKSO (Arsitektur Komputer dan Sistem Operasi) ]
+### [ Docker Code 
+UASP AKSO (Arsitektur Komputer dan Sistem Operasi) ]
 
 「  Members of the group  」
 
-Ribby Liliyana Susan   (24031554041)
+➴ Ribby Liliyana Susan   (24031554041)
 
-Mufid Febriyan Al Faiz (24031554006)
+➴ Mufid Febriyan Al Faiz (24031554006)
 
 
 
