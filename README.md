@@ -1,5 +1,5 @@
 ## DOCKER PROJECT 
-UASP AKSO (Arsitektur Komputer dan Sistem Operasi) ]
+UASP AKSO (Arsitektur Komputer dan Sistem Operasi) 
 
 「  Members of the group  」
 
@@ -11,7 +11,7 @@ UASP AKSO (Arsitektur Komputer dan Sistem Operasi) ]
 
 version: "3.9"
 
-Services :
+## Services 
 
 Nginx:
 
