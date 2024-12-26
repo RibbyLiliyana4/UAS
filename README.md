@@ -13,7 +13,7 @@ Web User
 
 DB Siakad
 mariadb:10.6
-Siakad Manager (DBMS)
+
 phpmyadmin
 
 
