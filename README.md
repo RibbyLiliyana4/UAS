@@ -13,15 +13,15 @@ version: "3.9"
 
 ## Services 
 
-Nginx:
+• Nginx:
 
     image: nginx:latest
 
-Php:
+• Php:
 
     image: php:7.4-fpm
     
-Mysql:
+• Mysql:
 
     image: mysql:8.0.40-debian
 
